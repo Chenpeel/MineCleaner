@@ -1,11 +1,6 @@
 # Mines Cleaner
 > 扫雷 （基于 C++/Qt）
 
-### 闲言
-
-建立初衷来自于刷视频时的灵感。
-为C++/QT练手
-添加一些公式、题目，让大家在玩游戏的同时，不忘复习数学知识😊。
 
 
 ### 食用指北🧭
@@ -17,7 +12,7 @@
 - QtSql : [Qt SQL](https://doc.qt.io/qt-6/qtsql-index.html)
 - CMake : [下载](https://cmake.org/download/)
 - Make  : [在windows上安装make](https://zhuanlan.zhihu.com/p/630244738)、[下载](https://www.gnu.org/software/make/)
-  
+
 
 
 #### 下载🦐
@@ -56,26 +51,13 @@ make
 
 ### 简单展示
 
-1. 进入游戏 
+1. 进入游戏
    ![开始页面](./resource/img/other/start_show.png)
 
 2. 选择难度
    ![关卡选择](./resource/img/other/level_show.png)
 
 3. 游戏界面
-   ![游戏初始页面](./resource/img/other/game_show.png)   
+   ![游戏初始页面](./resource/img/other/game_show.png)
    ![显示难题](./resource/img/other/medium_show.png)
 4. 扫除失败
-
-
-
-
-
-### ToDo 
-
-- [x] 本地基础题(10 ~ 20)
-- [ ] 可自行导入题目库
-  - [ ] 自定 Latex / Markdown 公式导入器，渲染，存储到题目库
-  - [ ] 云端题库
-
-
