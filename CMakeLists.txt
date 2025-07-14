@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(Mine_Sweeper VERSION 0.1 LANGUAGES CXX)
+project(MineCleaner VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -13,7 +13,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools Sql)
 
-set(TS_FILES Mine_Sweeper_zh_CN.ts)
+set(TS_FILES MineCleaner_zh_CN.ts)
 
 file(GLOB_RECURSE PROJECT_SOURCES
     include/*.h
@@ -31,7 +31,7 @@ set(MOC_HEADERS
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(Mine_Sweeper
+    qt_add_executable(MineCleaner
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         ${MOC_HEADERS}  # Include MOC headers here
@@ -40,13 +40,13 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 else()
     if(ANDROID)
-        add_library(Mine_Sweeper SHARED
+        add_library(MineCleaner SHARED
             ${PROJECT_SOURCES}
             ${MOC_HEADERS}  # Include MOC headers here
         )
         set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-        add_executable(Mine_Sweeper
+        add_executable(MineCleaner
             ${PROJECT_SOURCES}
             resource.qrc
             ${MOC_HEADERS}  # Include MOC headers here
@@ -56,13 +56,13 @@ else()
     qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()
 
-target_link_libraries(Mine_Sweeper PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Sql)
+target_link_libraries(MineCleaner PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Sql)
 
 if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.Mine_Sweeper)
+  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.MineCleaner)
 endif()
 
-set_target_properties(Mine_Sweeper PROPERTIES
+set_target_properties(MineCleaner PROPERTIES
     ${BUNDLE_ID_OPTION}
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -71,12 +71,12 @@ set_target_properties(Mine_Sweeper PROPERTIES
 )
 
 include(GNUInstallDirs)
-install(TARGETS Mine_Sweeper
+install(TARGETS MineCleaner
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(Mine_Sweeper)
+    qt_finalize_executable(MineCleaner)
 endif()

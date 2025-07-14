@@ -1,13 +1,10 @@
-# Mines Cleaner
+# Mine Cleaner
 > 扫雷 （基于 C++/Qt）
-
-
 
 ### 食用指北🧭
 
-
 #### 编译工具、库要求
-
+- git   : [Git](https://git-scm.com/)
 - Qt5   : [Qt](https://www.qt.io/)
 - QtSql : [Qt SQL](https://doc.qt.io/qt-6/qtsql-index.html)
 - CMake : [下载](https://cmake.org/download/)
@@ -18,13 +15,14 @@
 #### 下载🦐
 
 ```bash
-git clone https://github.com/Chenpeel/Mines_Cleaner.git
+git clone https://github.com/Chenpeel/MineCleaner.git
 ```
 
 进入目录
 
 ```bash
-cd Mines_Cleaner
+cd MineCleaner
+git checkout mcc # cpp branch
 ```
 
 创建build文件夹，进入build文件夹

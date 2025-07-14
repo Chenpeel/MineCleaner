@@ -5,7 +5,7 @@ struct connectionInfo {
   const QString hostName = "localhost";
   const QString userName = "root";
   const QString password = "12345678";
-  const QString databaseName = "mine_sweeper";
+  const QString databaseName = "minecleaner";
   const int port = 3306;
 };
 
@@ -13,14 +13,14 @@ connectionInfo const connect;
 DatabaseOp::DatabaseOp() {}
 
 bool DatabaseOp::connectDatabase() {
-    qDebug() << "Available drivers:" << QSqlDatabase::drivers();
+  qDebug() << "Available drivers:" << QSqlDatabase::drivers();
 
   QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
   db.setHostName(connect.hostName);
   db.setUserName(connect.userName);
   db.setPassword(connect.password);
   db.setPort(connect.port);
-  db.setDatabaseName("mine_sweeper");
+  db.setDatabaseName("minecleaner");
 
   if (!db.open()) {
     qDebug() << "Cannot open database";
@@ -53,7 +53,7 @@ bool DatabaseOp::registerUser(User register_user) {
       qDebug() << "Invalid email address";
       return false;
     }
-    QSqlDatabase::removeDatabase("mine_sweeper");
+    QSqlDatabase::removeDatabase("minecleaner");
   }
   return false;
 }
@@ -78,7 +78,7 @@ bool DatabaseOp::loginUser(User login_user) {
     if (query.exec()) {
       if (query.next()) {
         // User found
-        QSqlDatabase::removeDatabase("mine_sweeper");
+        QSqlDatabase::removeDatabase("minecleaner");
         return true;
       } else {
         // User not found
@@ -89,7 +89,7 @@ bool DatabaseOp::loginUser(User login_user) {
       qDebug() << "Query failed:" << query.lastError().text();
     }
 
-    QSqlDatabase::removeDatabase("mine_sweeper");
+    QSqlDatabase::removeDatabase("minecleaner");
   } else {
     // Database connection failed
     qDebug() << "Database connection failed";
@@ -102,9 +102,8 @@ bool DatabaseOp::insertGameRecord(User to_record) {
   if (connectDatabase()) {
     if (loginUser(to_record)) {
       QSqlQuery query_user;
-      query_user.prepare(
-          "SELECT * FROM User WHERE username = :username AND "
-          "password = :password");
+      query_user.prepare("SELECT * FROM User WHERE username = :username AND "
+                         "password = :password");
       query_user.bindValue(":username", to_record.userName);
       query_user.bindValue(":password", to_record.password);
       if (query_user.exec()) {
@@ -135,7 +134,7 @@ bool DatabaseOp::insertGameRecord(User to_record) {
         return false;
       }
     }
-    QSqlDatabase::removeDatabase("mine_sweeper");
+    QSqlDatabase::removeDatabase("minecleaner");
   }
   return false;
 }
@@ -145,9 +144,8 @@ QVector<User> DatabaseOp::getGameRecord(User to_get) {
   if (connectDatabase()) {
     if (loginUser(to_get)) {
       QSqlQuery query;
-      query.prepare(
-          "SELECT * FROM GameRecord WHERE username = :username AND "
-          "levelInfo = :levelInfo");
+      query.prepare("SELECT * FROM GameRecord WHERE username = :username AND "
+                    "levelInfo = :levelInfo");
       query.bindValue(":username", to_get.userName);
       query.bindValue(":levelInfo", to_get.levelInfo);
       if (query.exec()) {
@@ -164,7 +162,7 @@ QVector<User> DatabaseOp::getGameRecord(User to_get) {
         qDebug() << query.lastError().text();
       }
     }
-    QSqlDatabase::removeDatabase("mine_sweeper");
+    QSqlDatabase::removeDatabase("minecleaner");
   }
   return game_records;
 }
