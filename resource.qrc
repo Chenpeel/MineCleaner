@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resource/img/icon/icon.png</file>
+        <file>resource/img/icon/setting.png</file>
+        <file>resource/img/icon/exit.png</file>
+        <file>resource/img/icon/start.png</file>
+        <file>resource/img/icon/back.png</file>
+        <file>resource/img/icon/ms_bg.png</file>
+        <file>resource/img/1.png</file>
+        <file>resource/img/2.png</file>
+        <file>resource/img/3.png</file>
+        <file>resource/img/4.png</file>
+        <file>resource/img/5.png</file>
+        <file>resource/img/6.png</file>
+        <file>resource/img/7.png</file>
+        <file>resource/img/8.png</file>
+        <file>resource/img/empty.png</file>
+        <file>resource/img/explosive.png</file>
+        <file>resource/img/flagged.png</file>
+        <file>resource/img/initial.png</file>
+        <file>resource/img/puzzled.png</file>
+    </qresource>
+</RCC>
