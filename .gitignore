@@ -76,8 +76,10 @@ CMakeLists.txt.user*
 # build generate file and dir
 build*
 
-# Visual Studio Code generated files 
+# Visual Studio Code generated files
 .vscode
 
 Icon
-Icon$''
+Icon$'
+'
+data/
